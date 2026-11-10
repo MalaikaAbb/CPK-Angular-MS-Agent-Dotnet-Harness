@@ -1,0 +1,13 @@
+{
+  "name": "copilotkit-ms-agent-harness-dotnet-angular-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "record": "npm --prefix autorecorder run record --",
+    "record:all": "npm --prefix autorecorder run record",
+    "record:list": "npm --prefix autorecorder run record -- --list",
+    "record:doctor": "npm --prefix autorecorder run doctor",
+    "record:doctor:online": "npm --prefix autorecorder run doctor:online"
+  }
+}

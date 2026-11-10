@@ -1,0 +1,163 @@
+/**
+ * Frontend tools and generative UI — server tool, browser tool, display-only component.
+ *
+ * https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/frontend-tools-generative-ui
+ *
+ * Turn 1 calls `getWeather`, which runs in the Agent Framework process (backend/Program.cs);
+ * the browser only renders it, through `app-weather-card`. Turn 2 calls
+ * `change_background`, which runs in the browser and renders nothing in chat —
+ * its result is the page itself repainting, so the cursor has to go and look at
+ * the page.
+ *
+ * Turn 3 is the guide's display-only section, `registerComponent`. The
+ * Python harness (../ms-agent-py) recorded four defects in that snippet as
+ * published; they are Angular-side, and the .NET guide carries the same
+ * snippet byte for byte, but none has been re-observed against this backend.
+ * So this clip films the turn and logs what the card holds, and types no
+ * findings on screen.
+ *
+ * The card is waited for separately from the reply, so "the tool renderer
+ * mounted" and "the turn finished" stay legible as two different things, and its
+ * heading is read out of the DOM and logged — a rendered card with an empty
+ * field would otherwise look identical on video to a correct one.
+ */
+import { type Page } from 'playwright';
+
+import { promptsFor, sendPrompt, waitForAgentResponseCompletion } from '../core/actions';
+import { beat, humanGlide, sleep } from '../core/overlays/cursor';
+import { type PageActionHandler, type PageRecordConfig } from '../core/types';
+import { closeNotepadNote, openNotepadWindow, typeInNotepad } from './notepad';
+
+/**
+ * The card's heading — `{{ call.args.city }}` in the guide's own snippet.
+ *
+ * Returned as null when the card is absent so the caller can tell "no card" and
+ * "card with a blank heading" apart. They are different results.
+ */
+async function readCardHeading(page: Page): Promise<string | null> {
+  return page
+    .evaluate(() => {
+      const card = document.querySelector('app-weather-card');
+      if (!card) return null;
+      const strong = card.querySelector('strong');
+      return (strong?.textContent ?? '').trim();
+    })
+    .catch(() => null);
+}
+
+/**
+ * The incident card's two fields. Read separately from "is it in the DOM",
+ * because the finding is a card that mounts with both of them empty.
+ */
+async function readIncidentCard(
+  page: Page,
+): Promise<{ id: string; severity: string } | null> {
+  return page
+    .evaluate(() => {
+      const card = document.querySelector('app-incident-card');
+      if (!card) return null;
+      return {
+        id: (card.querySelector('strong')?.textContent ?? '').trim(),
+        severity: (card.querySelector('span')?.textContent ?? '').trim(),
+      };
+    })
+    .catch(() => null);
+}
+
+export const runToolsAction: PageActionHandler = async (
+  page: Page,
+  config: PageRecordConfig,
+  _rootPath,
+  ctx,
+) => {
+  const [weatherPrompt, backgroundPrompt, incidentPrompt] = promptsFor(config);
+  const wait = config.waitAfterPromptMs ?? 4000;
+
+  // ── Server-side tool, rendered by an Angular component ────────────────────
+  console.log(`   🌤️ Server tool: ${weatherPrompt}`);
+  const firstCount = await sendPrompt(page, weatherPrompt);
+
+  // The card appears while the reply is still streaming; waiting for it here
+  // separates "the tool renderer mounted" from "the turn finished", so a broken
+  // renderer is visible as its own failure instead of a silent absence.
+  const weatherCard = page.locator('app-weather-card').first();
+  await weatherCard.waitFor({ state: 'visible', timeout: 25000 }).catch(() => {
+    ctx.fail('app-weather-card never rendered -- the getWeather tool call did not fire or its renderer did not mount.');
+  });
+
+  await waitForAgentResponseCompletion(page, wait, firstCount);
+
+  // Measure the heading rather than trusting the eye: a card that mounts with
+  // an empty field looks like a card.
+  const heading = await readCardHeading(page);
+  if (heading === null) {
+    // Already failed above when the card never appeared; nothing to add.
+  } else if (heading.length === 0) {
+    ctx.warn('Weather card heading rendered empty -- the argument names in the renderer do not match the tool call.');
+  } else {
+    console.log(`   ✅ Card heading reads "${heading}".`);
+  }
+
+  // Rest on the card's top edge, where the city name is, then move to the
+  // result line below it.
+  const cardBox = await weatherCard.boundingBox().catch(() => null);
+  if (cardBox) {
+    console.log(`   🎯 Resting on the card.`);
+    await humanGlide(page, cardBox.x + 60, cardBox.y + 18, 22);
+    await beat(2600);
+    await humanGlide(page, cardBox.x + cardBox.width / 2, cardBox.y + cardBox.height / 2, 18);
+    await beat(1600);
+  }
+
+  // ── Browser-side tool, whose only output is the page repainting ───────────
+  if (backgroundPrompt) {
+    console.log(`   🎨 Frontend tool: ${backgroundPrompt}`);
+    const secondCount = await sendPrompt(page, backgroundPrompt);
+    await waitForAgentResponseCompletion(page, 3000, secondCount);
+
+    console.log(`   ✨ Showing the repainted background.`);
+    await humanGlide(page, 500, 350, 25);
+    await beat(1000);
+    await humanGlide(page, 700, 520, 25);
+    await beat(2000);
+  }
+
+  // ── Display-only registration: the guide's new section, and the finding ───
+  if (!incidentPrompt) return;
+
+  console.log(`   🪪 Display-only tool: ${incidentPrompt}`);
+  const thirdCount = await sendPrompt(page, incidentPrompt);
+
+  const incidentCard = page.locator('app-incident-card').first();
+  await incidentCard.waitFor({ state: 'visible', timeout: 25000 }).catch(() => {
+    ctx.fail('app-incident-card never rendered -- registerComponent did not fire.');
+  });
+
+  // Sampled the instant it mounts. The guide's in-progress guard does not fire,
+  // so this is where the empty-card frame is caught if it is catchable.
+  const atMount = await readIncidentCard(page);
+  console.log(
+    `   🔎 At mount: id="${atMount?.id ?? '(no card)'}" severity="${atMount?.severity ?? ''}"`,
+  );
+
+  await waitForAgentResponseCompletion(page, wait, thirdCount);
+
+  const settled = await readIncidentCard(page);
+  if (settled && settled.id) {
+    console.log(`   ✅ Card settled correct: ${settled.id} / ${settled.severity}.`);
+  } else {
+    ctx.warn('Incident card mounted but never filled in -- id and severity stayed empty after the reply settled.');
+  }
+
+  // Rest on the card, then travel down to whatever the agent said beneath it.
+  const incidentBox = await incidentCard.boundingBox().catch(() => null);
+  if (incidentBox) {
+    console.log(`   🎯 Resting on the correct card.`);
+    await humanGlide(page, incidentBox.x + 60, incidentBox.y + 18, 22);
+    await beat(2400);
+    console.log(`   👇 Travelling to the reply beneath it.`);
+    await humanGlide(page, incidentBox.x + 80, incidentBox.y + incidentBox.height + 70, 20);
+    await beat(2600);
+  }
+
+};

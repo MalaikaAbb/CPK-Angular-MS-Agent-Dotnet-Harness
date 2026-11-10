@@ -1,0 +1,50 @@
+<!--
+  Project settings and package pins from the CopilotKit showcase,
+  showcase/integrations/ms-agent-harness-dotnet/agent/BeautifulChatAgent.csproj —
+  the project behind the file
+  https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/multi-agent/subagents
+  quotes. Those pins are what make the guide's C# (AgentSession,
+  AgentResponse, RunCoreAsync/RunCoreStreamingAsync overrides, AsHarnessAgent)
+  compile.
+
+  Differences from the showcase project:
+  - Only the files this harness uses are compiled.
+  - The showcase's ..\_shared\dotnet\LunaChatClientExtensions.cs lives in
+    shared/ here, unchanged.
+  - No UserSecretsId (configuration comes from backend/.env).
+-->
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <!-- Run on a newer major runtime when .NET 9 is absent (e.g. a .NET 10-only machine). -->
+    <RollForward>Major</RollForward>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <!-- MAAI001: Microsoft.Agents.AI eval-only APIs (HarnessAgentOptions, etc.).
+         MEAI001: Microsoft.Extensions.AI eval-only APIs (AgentRunOptions.ContinuationToken). -->
+    <NoWarn>$(NoWarn);MAAI001;MEAI001</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Self-defined. -->
+    <Compile Include="Program.cs" />
+    <Compile Include="ResearchAgent.cs" />
+    <!-- Showcase, unchanged. -->
+    <Compile Include="SubagentsAgent.cs" />
+    <Compile Include="shared\LunaChatClientExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Agents.AI.Harness" Version="1.6.1-preview.260514.1" />
+    <PackageReference Include="Microsoft.Agents.AI.Hosting.AGUI.AspNetCore" Version="1.6.1-preview.260514.1" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.5.1" />
+    <PackageReference Include="OpenAI" Version="2.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update=".env" CopyToOutputDirectory="PreserveNewest" Condition="Exists('.env')" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,208 @@
+{
+  "ranAt": "2026-11-09T15:11:49.413Z",
+  "baseline": true,
+  "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet",
+  "pages": [
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet.md",
+      "routes": [
+        "/",
+        "/doc-sync"
+      ],
+      "title": "Introduction",
+      "sha256": "6334c4283589d598aaf427fccdf6fe93f4fa78e90661111f0345f5070658e25e",
+      "bytes": 7496,
+      "lines": 191,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/ag-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/ag-ui.md",
+      "routes": [
+        "/ag-ui"
+      ],
+      "title": "AG-UI",
+      "sha256": "e25c6036f91daa618e36a3518d8a0f89dd28c00ccc7a0c6f3962c5431394d5d9",
+      "bytes": 4376,
+      "lines": 133,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/copilot-runtime",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/copilot-runtime.md",
+      "routes": [
+        "/copilot-runtime"
+      ],
+      "title": "Copilot Runtime",
+      "sha256": "243954ec2a0032c96496a4d18d9ab779489bfb78da09e0eb59e862d0357deca6",
+      "bytes": 11255,
+      "lines": 268,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/a2ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/a2ui.md",
+      "routes": [
+        "/a2ui"
+      ],
+      "title": "A2UI schemas, styling, and recovery",
+      "sha256": "fdda5163a63ba3ab388234a8d909be16ed4f84fd6019ca53970c25fd791b9140",
+      "bytes": 7139,
+      "lines": 222,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/chat-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/chat-ui.md",
+      "routes": [
+        "/chat-ui"
+      ],
+      "title": "Chat UI and customization",
+      "sha256": "f47ea56f4871444fa74dc5d16baee869b14c6ca3d6190b9699e889f2cf183b1e",
+      "bytes": 5163,
+      "lines": 178,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/frontend-tools-generative-ui",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/frontend-tools-generative-ui.md",
+      "routes": [
+        "/frontend-tools-generative-ui"
+      ],
+      "title": "Frontend tools and generative UI",
+      "sha256": "878134389ba6b35d2902e98b634fded18c08d7b140ecf99d1cd6809419e5c197",
+      "bytes": 8652,
+      "lines": 246,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/human-in-the-loop",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/human-in-the-loop.md",
+      "routes": [
+        "/human-in-the-loop"
+      ],
+      "title": "Human-in-the-loop and interrupts",
+      "sha256": "d5f283d91d605bcc7e6add07118db4754a297c56435069554c302ec20cdcfcd9",
+      "bytes": 9005,
+      "lines": 274,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/shared-state",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/shared-state.md",
+      "routes": [
+        "/shared-state"
+      ],
+      "title": "Shared state and agent context",
+      "sha256": "ce83e2cc8b56402d455d810a52d9889fc44eec213cd8a8158d2a45e05942b018",
+      "bytes": 4739,
+      "lines": 151,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/threads-memory-attachments-headless",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/threads-memory-attachments-headless.md",
+      "routes": [
+        "/threads",
+        "/memory",
+        "/attachments",
+        "/headless"
+      ],
+      "title": "Threads",
+      "sha256": "50d4dc50a50c1f3f2fa7079c4034afc268afdd6710e62aecd23adab8f880fd06",
+      "bytes": 8966,
+      "lines": 302,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/guides/voice-multimodal",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/guides/voice-multimodal.md",
+      "routes": [
+        "/voice-multimodal"
+      ],
+      "title": "Voice and multimodal input",
+      "sha256": "fc043e139cad9b8a46e662bed212e006a9db0bafdedabd9c13dff0baa24af8c8",
+      "bytes": 4536,
+      "lines": 128,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/multi-agent/subagents",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/multi-agent/subagents.md",
+      "routes": [
+        "/subagents"
+      ],
+      "title": "Sub-agents",
+      "sha256": "f73fea897d27220cba8954e131e3631c3592a6a99ba63bfdcb7f739385c5adf7",
+      "bytes": 33485,
+      "lines": 839,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/quickstart",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/quickstart.md",
+      "routes": [
+        "/quickstart"
+      ],
+      "title": "Quickstart",
+      "sha256": "6334c4283589d598aaf427fccdf6fe93f4fa78e90661111f0345f5070658e25e",
+      "bytes": 7496,
+      "lines": 191,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    },
+    {
+      "docPath": "/angular/ms-agent-harness-dotnet/webmcp",
+      "url": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet/webmcp.md",
+      "routes": [
+        "/webmcp"
+      ],
+      "title": "WebMCP",
+      "sha256": "1b024009c1f2dfa425b9e42affcd68efb77282ed0762562e64b947f54004edd6",
+      "bytes": 7543,
+      "lines": 169,
+      "outcome": "new",
+      "severity": "none",
+      "hunks": []
+    }
+  ],
+  "sitemap": {
+    "newUnmapped": [],
+    "confirmedRemoved": [],
+    "urlsUnderRoot": 3
+  },
+  "counts": {
+    "unchanged": 0,
+    "changed": 0,
+    "new": 13,
+    "missing": 0,
+    "unstable": 0,
+    "error": 0
+  },
+  "highest": "none",
+  "durationMs": 1746
+}

@@ -1,0 +1,172 @@
+{
+  "schema": 1,
+  "docsRoot": "https://docs.copilotkit.ai/angular/ms-agent-harness-dotnet",
+  "syncedAt": "2026-11-09T15:11:49.413Z",
+  "pages": {
+    "/angular/ms-agent-harness-dotnet": {
+      "file": "angular__ms-agent-harness-dotnet.md",
+      "sha256": "6334c4283589d598aaf427fccdf6fe93f4fa78e90661111f0345f5070658e25e",
+      "bytes": 7496,
+      "lines": 191,
+      "routes": [
+        "/",
+        "/doc-sync"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/ag-ui": {
+      "file": "angular__ms-agent-harness-dotnet__ag-ui.md",
+      "sha256": "e25c6036f91daa618e36a3518d8a0f89dd28c00ccc7a0c6f3962c5431394d5d9",
+      "bytes": 4376,
+      "lines": 133,
+      "routes": [
+        "/ag-ui"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/copilot-runtime": {
+      "file": "angular__ms-agent-harness-dotnet__copilot-runtime.md",
+      "sha256": "243954ec2a0032c96496a4d18d9ab779489bfb78da09e0eb59e862d0357deca6",
+      "bytes": 11255,
+      "lines": 268,
+      "routes": [
+        "/copilot-runtime"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/a2ui": {
+      "file": "angular__ms-agent-harness-dotnet__guides__a2ui.md",
+      "sha256": "fdda5163a63ba3ab388234a8d909be16ed4f84fd6019ca53970c25fd791b9140",
+      "bytes": 7139,
+      "lines": 222,
+      "routes": [
+        "/a2ui"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/chat-ui": {
+      "file": "angular__ms-agent-harness-dotnet__guides__chat-ui.md",
+      "sha256": "f47ea56f4871444fa74dc5d16baee869b14c6ca3d6190b9699e889f2cf183b1e",
+      "bytes": 5163,
+      "lines": 178,
+      "routes": [
+        "/chat-ui"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/frontend-tools-generative-ui": {
+      "file": "angular__ms-agent-harness-dotnet__guides__frontend-tools-generative-ui.md",
+      "sha256": "878134389ba6b35d2902e98b634fded18c08d7b140ecf99d1cd6809419e5c197",
+      "bytes": 8652,
+      "lines": 246,
+      "routes": [
+        "/frontend-tools-generative-ui"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/human-in-the-loop": {
+      "file": "angular__ms-agent-harness-dotnet__guides__human-in-the-loop.md",
+      "sha256": "d5f283d91d605bcc7e6add07118db4754a297c56435069554c302ec20cdcfcd9",
+      "bytes": 9005,
+      "lines": 274,
+      "routes": [
+        "/human-in-the-loop"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:51 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/shared-state": {
+      "file": "angular__ms-agent-harness-dotnet__guides__shared-state.md",
+      "sha256": "ce83e2cc8b56402d455d810a52d9889fc44eec213cd8a8158d2a45e05942b018",
+      "bytes": 4739,
+      "lines": 151,
+      "routes": [
+        "/shared-state"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:51 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/threads-memory-attachments-headless": {
+      "file": "angular__ms-agent-harness-dotnet__guides__threads-memory-attachments-headless.md",
+      "sha256": "50d4dc50a50c1f3f2fa7079c4034afc268afdd6710e62aecd23adab8f880fd06",
+      "bytes": 8966,
+      "lines": 302,
+      "routes": [
+        "/threads",
+        "/memory",
+        "/attachments",
+        "/headless"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/guides/voice-multimodal": {
+      "file": "angular__ms-agent-harness-dotnet__guides__voice-multimodal.md",
+      "sha256": "fc043e139cad9b8a46e662bed212e006a9db0bafdedabd9c13dff0baa24af8c8",
+      "bytes": 4536,
+      "lines": 128,
+      "routes": [
+        "/voice-multimodal"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/multi-agent/subagents": {
+      "file": "angular__ms-agent-harness-dotnet__multi-agent__subagents.md",
+      "sha256": "f73fea897d27220cba8954e131e3631c3592a6a99ba63bfdcb7f739385c5adf7",
+      "bytes": 33485,
+      "lines": 839,
+      "routes": [
+        "/subagents"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/quickstart": {
+      "file": "angular__ms-agent-harness-dotnet__quickstart.md",
+      "sha256": "6334c4283589d598aaf427fccdf6fe93f4fa78e90661111f0345f5070658e25e",
+      "bytes": 7496,
+      "lines": 191,
+      "routes": [
+        "/quickstart"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:50 GMT"
+    },
+    "/angular/ms-agent-harness-dotnet/webmcp": {
+      "file": "angular__ms-agent-harness-dotnet__webmcp.md",
+      "sha256": "1b024009c1f2dfa425b9e42affcd68efb77282ed0762562e64b947f54004edd6",
+      "bytes": 7543,
+      "lines": 169,
+      "routes": [
+        "/webmcp"
+      ],
+      "status": "ok",
+      "age": 0,
+      "date": "Mon, 09 Nov 2026 15:11:51 GMT"
+    }
+  },
+  "sitemap": {
+    "fetchedAt": "2026-11-09T15:11:49.413Z",
+    "urlsUnderRoot": 3,
+    "knownUnmapped": []
+  }
+}
